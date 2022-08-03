@@ -11,7 +11,7 @@ export const mockAddAccountParams = (): AddAccountParams => ({
 })
 
 export const mockAccountModel = (): AccountModel => ({
-  id: faker.database.mongodbObjectId(),
+  _id: faker.database.mongodbObjectId(),
   name: faker.name.findName(),
   cpf: faker.datatype.number({ max: 99999999999, min: 10000000000 }),
   email: faker.internet.email(),

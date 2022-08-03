@@ -1,5 +1,5 @@
 export interface AccountModel {
-  id: string
+  _id: string
   name: string
   cpf: number
   email: string
