@@ -6,9 +6,11 @@ import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import { Account } from './account-mongo-model'
+import { UpdateAccessTokenRepository } from '@/data/protocols/db/account/update-access-token-repository'
+import { LoadAccountByTokenRepository } from '@/data/protocols/db/account/load-account-by-token-repository'
 
 @Injectable()
-export class AccountMongoRepository implements AddAccountRepository, LoadAccountByEmailRepository {
+export class AccountMongoRepository implements AddAccountRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository, LoadAccountByTokenRepository {
   constructor (@InjectModel('Account') private readonly Account: Model<Account>) {}
 
   async add (data: AddAccountParams): Promise<AccountModel> {
@@ -18,5 +20,13 @@ export class AccountMongoRepository implements AddAccountRepository, LoadAccount
 
   async loadByEmail (email: string): Promise<AccountModel> {
     return await this.Account.findOne({ email }).exec()
+  }
+
+  async updateAccessToken (id: string, token: string): Promise<void> {
+    await this.Account.updateOne({ _id: id }, { accessToken: token }).exec()
+  }
+
+  async loadByToken (token: string): Promise<AccountModel> {
+    return await this.Account.findOne({ accessToken: token }).exec()
   }
 }
