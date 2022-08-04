@@ -14,8 +14,8 @@ API feita com NodeJs + Typescript (NestJS), banco de dados MongoDb
 * cobertura de teste npm run test:cov
 
 > ## Observações
-Evitado usar dotenv para poder usar as url do mongo que criei
-Ao autenticar é gerado um token, para acessar as rotas privadas é necessario colocar no header: x-access-token o token recebido 
+* Evitado usar dotenv para poder usar as url do mongo que criei
+* Ao autenticar é gerado um token, para acessar as rotas privadas é necessario colocar no header: x-access-token o token recebido 
 
 > ## Faltou fazer
 * Refatorar Middleware para autenticação
