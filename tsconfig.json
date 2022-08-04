@@ -8,13 +8,12 @@
     "allowSyntheticDefaultImports": true,
     "target": "es2017",
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "dist",
     "rootDir": "src",
       "baseUrl": "src",
       "paths": {
         "@/*": ["*"]
       },
-    "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
