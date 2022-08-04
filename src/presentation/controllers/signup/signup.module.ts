@@ -5,10 +5,12 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { AccountSchema } from '@/infra/db/mongoose/account/account-mongo-schema'
 import { BcryptAdapter } from '@/infra/criptography/bcrypt-adapter/bcrypt-adapter'
 import { AccountMongoRepository } from '@/infra/db/mongoose/account/account-mongo-repository'
+import { LoginModule } from '../login/login.module'
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'Account', schema: AccountSchema, collection: 'account' }])
+    MongooseModule.forFeature([{ name: 'Account', schema: AccountSchema, collection: 'account' }]),
+    LoginModule
   ],
   controllers: [SignupController],
   providers: [
