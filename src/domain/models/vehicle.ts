@@ -1,9 +1,9 @@
-import { AccountModel } from './account'
+import { ReservedByModel } from './reservedBy'
 
 export interface VehicleModel {
-  id: string
+  _id: string
   model: string
   nameplate: string
   isReserved: boolean
-  reservedBy?: AccountModel
+  reservedBy?: ReservedByModel
 }
